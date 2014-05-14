@@ -1,0 +1,17 @@
+<html ng-app="student">
+<head>
+  <meta charset="utf-8">
+  <title>Student App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+<h1>Lista studentów :)</h1>
+  
+  <ul ng-repeat="student in studenci">
+	<li>{{student.imie}}</li>
+  </ul>
+  
+  <input type="button" value="pobierzStudentow" ng-click="ping()"/>
+</body>
+</html>
