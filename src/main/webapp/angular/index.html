@@ -3,23 +3,52 @@
   <meta charset="utf-8">
   <title>Student App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
+  <script type="text/javascript" src="js/jQuery1.11.1.js"></script>
   <script src="app.js"></script>
-  <link rel="stylesheet" href="style.css" type="text/css" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
+  
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body ng-controller="MainCtrl">
 <h1>Lista studentów :)</h1>
   
   <ul type="none" class="studentTable">
 	<!--<li>{{student.imie}}</li>-->
-	<li class="studentData"  ng-repeat="student in studenci">
-       <div class="id">{{student.id}}</div>
-       <div class="indexNumber">{{student.numerIndeksu}}</div>
-       <div class="name">{{student.imie}}</div>
-       <div class="surname">{{student.nazwisko}}</div>
-       <div class="eternal">{{student.wieczny}}</div>
+	<li class="studentData tableHeaderRow">
+       <!-- <div class="dataContainer id">Id</div>
+       <div class="separator"></div>-->
+       <div class="dataContainer indexNumber">Numer indeksu</div>
+       <div class="separator"></div>
+       <div class="dataContainer name">Imię</div>
+       <div class="separator"></div>
+       <div class="dataContainer surname">Nazwisko</div>
+       <div class="separator"></div>
+       <div class="dataContainer eternal">Wieczny</div>       
+       <div class="separator"></div>
+    </li>
+	<li class="studentData" ng-repeat="student in studenci">
+       <!-- <div class="dataContainer id">{{student.id}}</div>
+       <div class="separator"></div>-->
+       <div class="dataContainer indexNumber">{{student.numerIndeksu}}</div>
+       <div class="separator"></div>
+       <div class="dataContainer name">{{student.imie}}</div>
+       <div class="separator"></div>
+       <div class="dataContainer surname">{{student.nazwisko}}</div>
+       <div class="separator"></div>
+       <div class="dataContainer eternal">{{student.wieczny}}</div>
+       <div class="separator"></div>
+       <button class="btn btn-xs btn-primary" type="button" value="">Szczegóły</button>
+       <div style="display:none;">podmenu z wykładami i ocenami</div>
+       <!-- 
+        //TODO:
+        zrobic podmenu z danymi studenta
+        formularz w popupie przy dodawaniu studenta
+        -->
 	</li>	
   </ul>
   
   <input type="button" value="pobierzStudentow" ng-click="pokazStudentow()"/>
+  <div style="display:none;">formularz z tworzeniem studenta</div>
 </body>
 </html>
