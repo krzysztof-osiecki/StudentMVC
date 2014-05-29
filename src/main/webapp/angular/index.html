@@ -4,12 +4,20 @@
   <title>Student App</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
   <script src="app.js"></script>
+  <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 <body ng-controller="MainCtrl">
 <h1>Lista studentów :)</h1>
   
-  <ul ng-repeat="student in studenci">
-	<li>{{student.imie}}</li>
+  <ul type="none" class="studentTable">
+	<!--<li>{{student.imie}}</li>-->
+	<li class="studentData"  ng-repeat="student in studenci">
+       <div class="id">{{student.id}}</div>
+       <div class="indexNumber">{{student.numerIndeksu}}</div>
+       <div class="name">{{student.imie}}</div>
+       <div class="surname">{{student.nazwisko}}</div>
+       <div class="eternal">{{student.wieczny}}</div>
+	</li>	
   </ul>
   
   <input type="button" value="pobierzStudentow" ng-click="pokazStudentow()"/>
