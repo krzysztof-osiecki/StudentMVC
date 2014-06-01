@@ -15,11 +15,13 @@ app.controller('MainCtrl', function($scope,$http) {
 	                	alert(data);
 	            });
 	        }
+  $scope.getWykladyStudenta=function(studentId){
+	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
+	  		success(function(data){
+	  			$scope.zaliczeniaStudenta=data;
+	  			alert(data);
+	  			console.log(data);
+	  		});
+  };
 });
 
-$(document).ready(function(){
-	$("body").on("click","button.showDetails",function(){
-		$(".studentDetails").hide();
-		$("#studentIdFullData_"+$(this).attr("id").split("_")[1]).show();
-	});
-});

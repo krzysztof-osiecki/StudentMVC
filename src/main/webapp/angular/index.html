@@ -2,9 +2,15 @@
 <head>
   <meta charset="utf-8">
   <title>Student App</title>
+  
+  
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
-  <script type="text/javascript" src="js/jQuery1.11.1.js"></script>
+  
   <script src="app.js"></script>
+  
+  
+  <script type="text/javascript" src="js/jQuery1.11.1.js"></script>
+  <script type="text/javascript" src="js/view.js"></script>
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   
   <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css" />
@@ -41,7 +47,7 @@
 	       <div class="separator"></div>
 	       <div class="dataContainer eternal">{{student.wieczny}}</div>
 	       <div class="separator"></div>
-	       <button id="studentIdData_{{$index}}" class="showDetails btn btn-xs btn-primary" type="button" value="">Szczegóły</button>
+	       <button id="studentIdData_{{$index}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta($index)">Szczegóły</button>
         </div>
         <div id="studentIdFullData_{{$index}}" class="studentDetails fullDataContainer">
              
