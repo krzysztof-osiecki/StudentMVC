@@ -47,9 +47,9 @@
 	       <div class="separator"></div>
 	       <div class="dataContainer eternal">{{student.wieczny}}</div>
 	       <div class="separator"></div>
-	       <button id="studentIdData_{{$index}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta($index)">Szczegóły</button>
+	       <button id="studentIdData_{{student.id}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta(student.id)">Szczegóły</button>
         </div>
-        <div id="studentIdFullData_{{$index}}" class="studentDetails fullDataContainer">
+        <div id="studentIdFullData_{{student.id}}" class="studentDetails fullDataContainer">
              
             <div class="leftContainer form-group">
                 <label for="studentIndexNumber">Numer Indeksu:</label>

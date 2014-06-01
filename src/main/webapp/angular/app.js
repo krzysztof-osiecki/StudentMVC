@@ -16,6 +16,7 @@ app.controller('MainCtrl', function($scope,$http) {
 	            });
 	        }
   $scope.getWykladyStudenta=function(studentId){
+	  alert('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId);
 	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
 	  		success(function(data){
 	  			$scope.zaliczeniaStudenta=data;
