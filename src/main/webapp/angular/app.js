@@ -53,10 +53,18 @@ app.controller('MainCtrl', function($scope,$http) {
 	  		});
   };
   $scope.ukryjSzczegoly=function(studentId){
-
 		$("#studentIdFullData_"+studentId).hide();
 		$("#studentIdHideData_"+studentId).hide();
 		$("#studentIdShowData_"+studentId).show();
   };
+  $scope.usunStudenta=function(studentId){
+	  $http.get('/AngularSpringApp/studenci/usunStudenta?studentId='+studentId).
+		success(function(data){
+			//alert(data);
+			if(data=="true"){
+				$("#studentDataWrapper_"+studentId).remove();
+			}
+		});
+  }
 });
 

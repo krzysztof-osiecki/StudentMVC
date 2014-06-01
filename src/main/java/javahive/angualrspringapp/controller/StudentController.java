@@ -42,4 +42,13 @@ public class StudentController {
         //return studentId;
         //return null;
     }
+    
+    @RequestMapping("/usunStudenta")
+    public @ResponseBody 
+    boolean usunStudenta(
+            @RequestParam(value="studentId") int studentId){
+            return studenciApi.usunStudenta(studentId);
+        //return studentId;
+        //return null;
+    }
 }

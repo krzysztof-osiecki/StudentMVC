@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 <body ng-controller="MainCtrl">
-<h1>Lista studentów :)</h1>
+<h1>Super Uber Student Manager!!!11oneone</h1>
   
   <ul type="none" class="studentTable">
 	<!--<li>{{student.imie}}</li>-->
@@ -31,7 +31,7 @@
 	       <div class="separator"></div>
        </div>
     </li>
-	<li class="studentDataWrapper" ng-repeat="student in studenci">
+	<li id="studentDataWrapper_{{student.id}}" class="studentDataWrapper" ng-repeat="student in studenci">
 	   <div class="studentData">
 	       <!-- <div class="dataContainer id">{{student.id}}</div>
 	       <div class="separator"></div>-->
@@ -45,7 +45,7 @@
 	       <div class="separator"></div>
 	       <button id="studentIdShowData_{{student.id}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta(student.id)">Szczegóły</button>
 	       <button id="studentIdHideData_{{student.id}}" class="hideDetails btn btn-xs btn-primary" type="button" ng-click="ukryjSzczegoly(student.id)">Ukryj</button>
-	       <button id="deleteStudent_{{student.id}}" class="deleteStudent btn btn-xs btn-danger" type="button" ng-click="getWykladyStudenta(student.id)">Usuń</button>
+	       <button id="deleteStudent_{{student.id}}" class="deleteStudent btn btn-xs btn-danger" type="button" ng-click="usunStudenta(student.id)">Usuń</button>
         </div>
         <div id="studentIdFullData_{{student.id}}" class="studentDetails fullDataContainer">
              
