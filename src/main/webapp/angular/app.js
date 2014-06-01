@@ -16,3 +16,10 @@ app.controller('MainCtrl', function($scope,$http) {
 	            });
 	        }
 });
+
+$(document).ready(function(){
+	$("body").on("click","button.showDetails",function(){
+		$(".studentDetails").hide();
+		$("#studentIdFullData_"+$(this).attr("id").split("_")[1]).show();
+	});
+});

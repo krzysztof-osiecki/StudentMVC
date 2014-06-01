@@ -17,25 +17,30 @@ body *{
 	font-weight:bold;
 }
 
+.studentDataWrapper{	
+    width: 860px;
+    margin: 3px 0px;
+    padding: 0px;
+}
+
 .studentData{
-	width: 860px;
-	margin: 3px 0px;
-	padding: 0px;
 	height:25px;
 	border: 1px solid black;
 	border-radius:5px	
 }
 
-.studentData:nth-child(even) {
+.studentDataWrapper:nth-child(even) > .studentData,
+.studentDataWrapper:nth-child(even) > .fullDataContainer {
     background-color: rgba(0,0,0,0.12);
 }
 
-.studentData:nth-child(odd) {
+.studentDataWrapper:nth-child(odd) > .studentData,
+.studentDataWrapper:nth-child(odd) > .fullDataContainer {
     background-color: rgba(0,0,0,0.06);
 }
 
 .studentData > .dataContainer{
-	height: 100%;
+	height: 25px;
 	text-align: center;
 	vertical-align: top;
 	display: inline-block;
@@ -71,4 +76,30 @@ body *{
 
 .studentData > .eternal{
 	width: 150px
+}
+
+.studentDataWrapper > .fullDataContainer{
+	width: 90%;
+	margin: 3px auto;
+	border: 1px solid black;
+	border-radius: 5px;
+	min-height: 300px;
+	position:relative;
+	display:none;
+}
+
+.fullDataContainer > .leftContainer {
+	float: left;	
+	width:50%;
+}
+
+.fullDataContainer > .rightContainer {	
+	margin-left:50%;
+	width:50%;
+}
+
+.fullDataContainer > .buttonsContainer{
+	position: absolute;
+	bottom:0px;
+	height:50px;
 }

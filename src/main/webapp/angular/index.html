@@ -15,32 +15,53 @@
   
   <ul type="none" class="studentTable">
 	<!--<li>{{student.imie}}</li>-->
-	<li class="studentData tableHeaderRow">
-       <!-- <div class="dataContainer id">Id</div>
-       <div class="separator"></div>-->
-       <div class="dataContainer indexNumber">Numer indeksu</div>
-       <div class="separator"></div>
-       <div class="dataContainer name">Imię</div>
-       <div class="separator"></div>
-       <div class="dataContainer surname">Nazwisko</div>
-       <div class="separator"></div>
-       <div class="dataContainer eternal">Wieczny</div>       
-       <div class="separator"></div>
+	<li class="studentDataWrapper tableHeaderRow">
+	   <div class="studentData">
+		   <!-- <div class="dataContainer id">Id</div>
+	       <div class="separator"></div>-->
+	       <div class="dataContainer indexNumber">Numer indeksu</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer name">Imię</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer surname">Nazwisko</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer eternal">Wieczny</div>       
+	       <div class="separator"></div>
+       </div>
     </li>
-	<li class="studentData" ng-repeat="student in studenci">
-       <!-- <div class="dataContainer id">{{student.id}}</div>
-       <div class="separator"></div>-->
-       <div class="dataContainer indexNumber">{{student.numerIndeksu}}</div>
-       <div class="separator"></div>
-       <div class="dataContainer name">{{student.imie}}</div>
-       <div class="separator"></div>
-       <div class="dataContainer surname">{{student.nazwisko}}</div>
-       <div class="separator"></div>
-       <div class="dataContainer eternal">{{student.wieczny}}</div>
-       <div class="separator"></div>
-       <button class="btn btn-xs btn-primary" type="button" value="">Szczegóły</button>
-       <div style="display:none;">podmenu z wykładami i ocenami</div>
-       <!-- 
+	<li class="studentDataWrapper" ng-repeat="student in studenci">
+	   <div class="studentData">
+	       <!-- <div class="dataContainer id">{{student.id}}</div>
+	       <div class="separator"></div>-->
+	       <div class="dataContainer indexNumber">{{student.numerIndeksu}}</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer name">{{student.imie}}</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer surname">{{student.nazwisko}}</div>
+	       <div class="separator"></div>
+	       <div class="dataContainer eternal">{{student.wieczny}}</div>
+	       <div class="separator"></div>
+	       <button id="studentIdData_{{$index}}" class="showDetails btn btn-xs btn-primary" type="button" value="">Szczegóły</button>
+        </div>
+        <div id="studentIdFullData_{{$index}}" class="studentDetails fullDataContainer">
+             
+            <div class="leftContainer form-group">
+                <label for="studentIndexNumber">Numer Indeksu:</label>
+                <input  id="studentIndexNumber" class="form-control" data-ng-model="student.numerIndeksu" type="text" disabled="disabled">
+                <label for="studentName">Imię:</label>
+                <input  id="studentName" class="form-control" data-ng-model="student.imie" type="text">
+                <label for="studentSurname">Nazwisko:</label>               
+                <input  id="studentSurname" class="form-control" data-ng-model="student.nazwisko" type="text">                
+                
+            </div>
+            <div class="rightContainer">
+                p<br />p<br />p<br />
+            </div>
+            <div class="buttonsContainer">
+                pppp
+            </div>       
+        </div>
+        <!-- 
         //TODO:
         zrobic podmenu z danymi studenta
         formularz w popupie przy dodawaniu studenta
