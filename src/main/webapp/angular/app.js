@@ -18,6 +18,12 @@ app.controller('MainCtrl', function($scope,$http) {
 	        }
   $scope.getWykladyStudenta=function(studentId){
 	  //alert('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId);
+		$(".studentDetails").not("#studentIdFullData_"+studentId).hide();
+		$(".hideDetails").hide();
+		$(".showDetails").show();
+		$("#deleteStudent_"+studentId).attr("disabled","disabled");
+
+		$("#studentIdShowData_"+studentId).hide();
 	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
 	  		success(function(data){
 	  			$scope.zaliczeniaStudenta=data;
@@ -42,7 +48,15 @@ app.controller('MainCtrl', function($scope,$http) {
 	  			//$scope.grade[0] = $scope.grades[2];
 	  			console.log(data);
 	  			$("#studentIdFullData_"+studentId).show();
+	  			$("#studentIdHideData_"+studentId).show();
+	  			$("#deleteStudent_"+studentId).removeAttr("disabled");
 	  		});
+  };
+  $scope.ukryjSzczegoly=function(studentId){
+
+		$("#studentIdFullData_"+studentId).hide();
+		$("#studentIdHideData_"+studentId).hide();
+		$("#studentIdShowData_"+studentId).show();
   };
 });
 

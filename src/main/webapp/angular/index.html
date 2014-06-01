@@ -43,8 +43,9 @@
 	       <div class="separator"></div>
 	       <div class="dataContainer eternal">{{student.wieczny}}</div>
 	       <div class="separator"></div>
-	       <button id="studentIdData_{{student.id}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta(student.id)">Szczegóły</button>
-	       <button id="deleteStudent_{{student.id}}" class="showDetails btn btn-xs btn-danger" type="button" ng-click="getWykladyStudenta(student.id)">Usuń</button>
+	       <button id="studentIdShowData_{{student.id}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta(student.id)">Szczegóły</button>
+	       <button id="studentIdHideData_{{student.id}}" class="hideDetails btn btn-xs btn-primary" type="button" ng-click="ukryjSzczegoly(student.id)">Ukryj</button>
+	       <button id="deleteStudent_{{student.id}}" class="deleteStudent btn btn-xs btn-danger" type="button" ng-click="getWykladyStudenta(student.id)">Usuń</button>
         </div>
         <div id="studentIdFullData_{{student.id}}" class="studentDetails fullDataContainer">
              
