@@ -51,4 +51,13 @@ public class StudentController {
         //return studentId;
         //return null;
     }
+    
+    @RequestMapping("/aktualizujStudenta")
+    public @ResponseBody 
+    boolean aktualizujStudenta(
+            @RequestParam(value="studentId") int studentId){
+            return studenciApi.usunStudenta(studentId);
+        //return studentId;
+        //return null;
+    }
 }

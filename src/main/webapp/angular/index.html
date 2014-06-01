@@ -15,6 +15,12 @@
 <body ng-controller="MainCtrl">
 <h1>Super Uber Student Manager!!!11oneone</h1>
   
+  <div class="menuButtonsContainer">
+    <button id="showAllStudents" class="btn btn-l btn-primary" type="button" ng-click="pokazStudentow()">Wyświetl wszystkich studentów</button>
+    <button id="openSearchMenu" class="btn btn-l btn-primary" type="button" >Wyszukaj studenta...</button>
+    <button id="openStudentAdder" class="btn btn-l btn-primary" type="button" >Dodaj studenta...</button>
+  </div>
+  
   <ul type="none" class="studentTable">
 	<!--<li>{{student.imie}}</li>-->
 	<li class="studentDataWrapper tableHeaderRow">
@@ -58,22 +64,28 @@
                 <input  id="studentSurname" class="form-control" data-ng-model="student.nazwisko" type="text">                
                 
             </div>
-            <div class="rightContainer">
+            <div class="rightContainer moveAwayFromBottom">
                 <ul type="none" class="zaliczenieTable">
                     <b>Wykłady studenta:</b>
                     <li ng-repeat="zaliczenie in zaliczeniaStudenta">
                         <!-- <div>{{zaliczenie.ocena}}</div> -->
                         <div>{{zaliczenie.przedmiot}}</div>
                         <div>{{zaliczenie.wykladowca}}</div>
-                        <select class="form-control" ng-model="grade[$index]" ng-options="g.value for g in grades">
+                        <select class="form-control" ng-model="grade[$index]" ng-options="g.value for g in grades" ng-change="ping()">
                             <option value="">--Wybierz ocenę--</option>
                         </select>
                     </li>
                 </ul>
-                p<br />p<br />p<br />
             </div>
             <div class="buttonsContainer">
-                pppp
+                <div class="leftContainer text-left">
+                    <button id="saveStudentPersonalData_{{student.id}}" class="saveStudentData btn btn-xl btn-success" type="button">Zapisz dane</button>
+                </div>
+                
+                <div class="rightContainer text-right">
+                    <!-- cośtam, że zapisywanie oceny -->
+                </div>
+                    
             </div>       
         </div>
         <!-- 
@@ -84,7 +96,6 @@
 	</li>	
   </ul>
   
-  <input type="button" value="pobierzStudentow" ng-click="pokazStudentow()"/>
   <div style="display:none;">formularz z tworzeniem studenta</div>
 </body>
 </html>

@@ -88,22 +88,41 @@ body *{
 	display:none;
 }
 
-.fullDataContainer > .leftContainer {
+.leftContainer {
 	float: left;	
 	width:50%;
 }
 
-.fullDataContainer > .rightContainer {	
+.rightContainer {	
 	margin-left:50%;
 	width:50%;
 }
 
+.moveAwayFromBottom{
+	padding-bottom: 60px;
+}
+
 .fullDataContainer > .buttonsContainer{
 	position: absolute;
+	left:0px;
+	right:0px;
 	bottom:0px;
-	height:50px;
+	height:40px;
+	text-align:center;
 }
 
 .hideDetails{
 	display:hidden;
+}
+
+h1{
+	margin-left:50px;
+}
+
+.menuButtonsContainer{
+	margin-left:50px;
+}
+
+.menuButtonsContainer > button{
+	display:inline-block;
 }

@@ -9,13 +9,13 @@ app.controller('MainCtrl', function($scope,$http) {
                 $scope.studenci = data;
                 console.log(data);
             });
-        }
+        };
   $scope.ping=function(){
 		$http.get('/AngularSpringApp/studenci/ping').
 	                success(function(data) {
 	                	alert(data);
 	            });
-	        }
+	        };
   $scope.getWykladyStudenta=function(studentId){
 	  //alert('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId);
 		$(".studentDetails").not("#studentIdFullData_"+studentId).hide();
@@ -65,6 +65,6 @@ app.controller('MainCtrl', function($scope,$http) {
 				$("#studentDataWrapper_"+studentId).remove();
 			}
 		});
-  }
+  };
 });
 
