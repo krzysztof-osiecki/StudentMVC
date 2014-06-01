@@ -2,15 +2,11 @@
 <head>
   <meta charset="utf-8">
   <title>Student App</title>
-  
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script>
-  
-  <script src="app.js"></script>
-  
-  
   <script type="text/javascript" src="js/jQuery1.11.1.js"></script>
   <script type="text/javascript" src="js/view.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.7/angular.min.js"></script> 
+  <script src="app.js"></script>
+  
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" />
   
   <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css" />
@@ -48,6 +44,7 @@
 	       <div class="dataContainer eternal">{{student.wieczny}}</div>
 	       <div class="separator"></div>
 	       <button id="studentIdData_{{student.id}}" class="showDetails btn btn-xs btn-primary" type="button" ng-click="getWykladyStudenta(student.id)">Szczegóły</button>
+	       <button id="deleteStudent_{{student.id}}" class="showDetails btn btn-xs btn-danger" type="button" ng-click="getWykladyStudenta(student.id)">Usuń</button>
         </div>
         <div id="studentIdFullData_{{student.id}}" class="studentDetails fullDataContainer">
              
@@ -61,6 +58,17 @@
                 
             </div>
             <div class="rightContainer">
+                <ul type="none" class="zaliczenieTable">
+                    <b>Wykłady studenta:</b>
+                    <li ng-repeat="zaliczenie in zaliczeniaStudenta">
+                        <!-- <div>{{zaliczenie.ocena}}</div> -->
+                        <div>{{zaliczenie.przedmiot}}</div>
+                        <div>{{zaliczenie.wykladowca}}</div>
+                        <select class="form-control" ng-model="grade[$index]" ng-options="g.value for g in grades">
+                            <option value="">--Wybierz ocenę--</option>
+                        </select>
+                    </li>
+                </ul>
                 p<br />p<br />p<br />
             </div>
             <div class="buttonsContainer">
