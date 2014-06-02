@@ -5,15 +5,10 @@ app.controller('MainCtrl', function($scope,$http) {
 	$http.get('/AngularSpringApp/studenci/pobierzOceny').
 	    success(function(data) {
 	    baseGrades = data;
-	    
+	    	    
 	    for(var i = 0; i < baseGrades.length ; i++){
-	    	console.log();
-	    }
-	    
-	    for(var i = 0; i < baseGrades.length ; i++){
-	    	var min = 0;
+	    	var min = i;	    	
 	    	for(var j=i+1 ; j < baseGrades.length; j++){
-	    		console.log(baseGrades[j].wysokosc+ " <?> "+ baseGrades[min].wysokosc);
 	    		if(baseGrades[j].wysokosc < baseGrades[min].wysokosc){
 	    			console.log("ok");
 	    			min = j;
