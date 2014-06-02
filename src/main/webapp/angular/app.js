@@ -86,9 +86,23 @@ app.controller('MainCtrl', function($scope,$http) {
 		success(function(data){
 			//alert(data);
 			if(data=="true"){
-				$(".gradeSuccess").show().delay(800).fadeOut("slow");
+				$(".saveSuccess").show().delay(800).fadeOut("slow");
 			}
 			
+		});
+  };
+  
+  $scope.zapiszDaneStudenta=function(studentId,studentImie,studentNazwisko){
+
+	  $http.get('/AngularSpringApp/studenci/zapiszDaneStudenta?'
+			  +'studentId='+studentId
+			  +'&imie='+studentImie
+			  +'&nazwisko='+studentNazwisko)
+		.success(function(data){
+			//alert(data);
+			if(data=="true"){
+				$(".saveSuccess").show().delay(800).fadeOut("slow");
+			}
 		});
   };
 });

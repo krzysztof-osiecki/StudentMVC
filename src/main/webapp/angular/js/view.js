@@ -1,5 +1,5 @@
 
 $(document).ready(function(){
 	$(".hideDetails").hide();
-	$(".gradeSuccess").hide();
+	$(".saveSuccess").hide();
 });

@@ -79,10 +79,10 @@
             </div>
             <div class="buttonsContainer">
                 <div class="leftContainer text-left">
-                    <button id="saveStudentPersonalData_{{student.id}}" class="saveStudentData btn btn-xl btn-success" type="button">Zapisz dane</button>
+                    <button id="saveStudentPersonalData_{{student.id}}" class="saveStudentData btn btn-xl btn-success" type="button" ng-click="zapiszDaneStudenta(student.id,student.imie,student.nazwisko)">Zapisz dane</button>
                 </div>
                 
-                <div class="rightContainer alert-s alert-success gradeSuccess">
+                <div class="rightContainer alert-s alert-success saveSuccess">
                     <!-- cośtam, że zapisywanie oceny -->
                     <span>Zapisano!</span>
                 </div>

@@ -63,4 +63,13 @@ public class StudentController {
     List<OcenaDTO> pobierzOceny(){
         return studenciApi.pobierzOceny();
     }
+    
+    @RequestMapping("/zapiszDaneStudenta")
+    public @ResponseBody
+    boolean zapiszDaneStudenta(
+            @RequestParam(value = "studentId") int studentId,
+            @RequestParam(value = "imie") String imie,
+            @RequestParam(value = "nazwisko") String nazwisko){
+        return studenciApi.edytujDaneStudenta(studentId, imie, nazwisko);
+    }
 }
