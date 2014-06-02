@@ -1,5 +1,8 @@
 var app = angular.module('student', []);
 var baseGrades = [];
+var baseLectures = [];
+var lecturesArray = [];
+
 //TODO gdzieś na koniec ogarnac jquery z angularem
 app.controller('MainCtrl', function($scope,$http) {
 	$http.get('/AngularSpringApp/studenci/pobierzOceny').
@@ -10,13 +13,30 @@ app.controller('MainCtrl', function($scope,$http) {
 	    	var min = i;	    	
 	    	for(var j=i+1 ; j < baseGrades.length; j++){
 	    		if(baseGrades[j].wysokosc < baseGrades[min].wysokosc){
-	    			console.log("ok");
 	    			min = j;
 	    		}
 	    	}
 	    	var tmp = baseGrades[i];
 	    	baseGrades[i] = baseGrades[min];
 	    	baseGrades[min] = tmp;
+	    }
+	    console.log(data);
+	});
+	
+	$http.get('/AngularSpringApp/studenci/pobierzWyklady').
+	    success(function(data) {
+	    baseLectures = data;
+	    	    
+	    for(var i = 0; i < baseLectures.length ; i++){
+	    	var min = i;	    	
+	    	for(var j=i+1 ; j < baseLectures.length; j++){
+	    		if(baseLectures[j].przedmiot < baseLectures[min].przedmiot){
+	      			min = j;
+	    		}
+	    	}
+	    	var tmp = baseLectures[i];
+	    	baseLectures[i] = baseLectures[min];
+	    	baseLectures[min] = tmp;
 	    }
 	    
 	    console.log(data);
@@ -49,6 +69,19 @@ app.controller('MainCtrl', function($scope,$http) {
 	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
 	  		success(function(data){	  			
 	  			$scope.zaliczeniaStudenta=data;
+	  			
+	  			for(var i = 0; i < $scope.zaliczeniaStudenta.length ; i++){
+	  		    	var min = i;	    	
+	  		    	for(var j=i+1 ; j < $scope.zaliczeniaStudenta.length; j++){
+	  		    		if($scope.zaliczeniaStudenta[j].przedmiot < $scope.zaliczeniaStudenta[min].przedmiot){
+	  		      			min = j;
+	  		    		}
+	  		    	}
+	  		    	var tmp = $scope.zaliczeniaStudenta[i];
+	  		    	$scope.zaliczeniaStudenta[i] = $scope.zaliczeniaStudenta[min];
+	  		    	$scope.zaliczeniaStudenta[min] = tmp;
+	  		    }
+	  			
 	  			$scope.grades = baseGrades;	  			
 	  			$scope.grade = [];
 	  			for(var i = 0; i < data.length ; i++){
@@ -134,14 +167,33 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   
   $scope.pokazMenuTworzeniaStudenta=function(){
+	  $scope.lectures = baseLectures;
+	  lecturesArray = [];
 	  $(".searchMenu").hide();
-	  $(".createStudentMenu").toggle();
+	  $(".createStudentMenu").toggle();	  
   };
   
-  $scope.dodajStudenta=function(imie,nazwisko){
+  $scope.dodajStudenta=function(imie,nazwisko,list){
+	  lecturesIdArray = [];
 	  alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
 			  +'studentName='+imie
-			  +'&studentSurname='+nazwisko);
+			  +'&studentSurname='+nazwisko
+			  +'&lectures='+list.toString());
+  };
+  
+  $scope.toggleLecture=function(wykladId,opcja){
+	  if(opcja){
+		  lecturesArray.push(wykladId);	
+		  //alert("dodaje do listy "+wykladId);
+	  }
+	  else{
+		  var t = lecturesArray.indexOf(wykladId);
+		  if(t!=-1){
+			  lecturesArray.splice(t,1);
+		  }
+		  //alert("usuwa "+wykladId);
+	  };
+	  alert(lecturesArray.toString());
   };
   
 });

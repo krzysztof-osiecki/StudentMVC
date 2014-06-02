@@ -57,6 +57,12 @@ public class StudentController {
             ){
         return studenciApi.wystawOcene(idZaliczenia, ocena);
     }
+
+    @RequestMapping("/pobierzWyklady")
+    public @ResponseBody
+    List<WykladDTO> pobierzWyklady(){
+        return studenciApi.getListaWszystkichWykladow();
+    }
     
     @RequestMapping("/pobierzOceny")
     public @ResponseBody

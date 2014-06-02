@@ -45,7 +45,17 @@
     <label for="studentSurname_create">Nazwisko:</label>
     <input  id="studentSurname_create" class="form-control" data-ng-model="createSurname" type="text">   
   
-    <button id="createStudentButton" class="btn btn-l btn-success" type="button" ng-click="dodajStudenta(createName,createSurname)" >Dodaj</button>
+    <br /><b>Wybierz wykłady:</b><br /><br />
+  
+    <ul type="none" class="lecturesTable">
+        <li class="lectureWrapper" ng-repeat="lecture in lectures">
+            <label>
+		      <input type="checkbox" ng-model="checked" ng-change="toggleLecture(lecture.id,checked)">{{lecture.przedmiot}} - {{lecture.wykladowca}}
+		    </label>
+        </li>
+    </ul>
+  
+    <button id="createStudentButton" class="btn btn-l btn-success" type="button" ng-click="dodajStudenta(createName,createSurname,lecturesArray)" >Dodaj</button>
   </div>
   
   
