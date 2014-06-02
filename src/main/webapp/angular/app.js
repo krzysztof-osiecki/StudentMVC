@@ -69,14 +69,19 @@ app.controller('MainCtrl', function($scope,$http) {
 		$("#studentIdHideData_"+studentId).hide();
 		$("#studentIdShowData_"+studentId).show();
   };
-  $scope.usunStudenta=function(studentId){
-	  $http.get('/AngularSpringApp/studenci/usunStudenta?studentId='+studentId).
-		success(function(data){
-			//alert(data);
-			if(data=="true"){
-				$("#studentDataWrapper_"+studentId).remove();
-			}
-		});
+  $scope.usunStudenta=function(studentId){	  
+	  if(confirm("Jesteś pewien?")){
+		  $http.get('/AngularSpringApp/studenci/usunStudenta?studentId='+studentId).
+			success(function(data){
+				//alert(data);
+				if(data=="true"){
+					$("#studentDataWrapper_"+studentId).remove();
+				}
+			});
+	  }
+	  else{
+		  
+	  }
   };
   
   $scope.wystawOcene=function(zaliczenieId,ocena){
