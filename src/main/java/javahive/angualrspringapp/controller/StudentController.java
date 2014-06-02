@@ -71,5 +71,21 @@ public class StudentController {
             @RequestParam(value = "imie") String imie,
             @RequestParam(value = "nazwisko") String nazwisko){
         return studenciApi.edytujDaneStudenta(studentId, imie, nazwisko);
-    }
+    };
+    
+    @RequestMapping("/szukajStudentow")
+    public @ResponseBody
+    List<StudentDTO> szukajStudentow(
+            @RequestParam(value="studentIndex") String index,
+            @RequestParam(value="studentName") String imie,
+            @RequestParam(value="studentSurname") String nazwisko
+            ){
+        
+        if(index != null){
+            ///bleh
+        }
+        
+        //return studenciApi.
+        return null;
+    };
 }

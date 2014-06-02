@@ -17,9 +17,37 @@
   
   <div class="menuButtonsContainer">
     <button id="showAllStudents" class="btn btn-l btn-primary" type="button" ng-click="pokazStudentow()">Wyświetl wszystkich studentów</button>
-    <button id="openSearchMenu" class="btn btn-l btn-primary" type="button" >Wyszukaj studenta...</button>
-    <button id="openStudentAdder" class="btn btn-l btn-primary" type="button" >Dodaj studenta...</button>
+    <button id="openSearchMenu" class="btn btn-l btn-primary" type="button" ng-click="pokazMenuWyszukiwania()">Wyszukiwanie studenta...</button>
+    <button id="openStudentAdder" class="btn btn-l btn-primary" type="button" ng-click="pokazMenuTworzeniaStudenta()" >Dodaj studenta...</button>
   </div>
+  
+  <div class="searchMenu form-group">
+  
+    <br /><b>Wyszukiwanie studenta:</b><br /><br />
+    <label for="studentIndexNumber_search">Numer Indeksu:</label>
+    <input  id="studentIndexNumber_search" class="form-control" data-ng-model="searchIndex" type="text">
+    
+    <label for="studentName_search">Imię:</label>
+    <input  id="studentName_search" class="form-control" data-ng-model="searchName" type="text"> 
+    
+    <label for="studentSurname_search">Nazwisko:</label>
+    <input  id="studentSurname_search" class="form-control" data-ng-model="searchSurname" type="text">   
+  
+    <button id="searchButton" class="btn btn-l btn-success" type="button" ng-click="szukajStudentow(searchIndex,searchName,searchSurname)" >Szukaj...</button>
+    <br />
+  </div>
+  
+  <div class="createStudentMenu form-group">
+    <br /><b>Tworzenie studenta:</b><br /><br />
+    <label for="studentName_create">Imię:</label>
+    <input  id="studentName_create" class="form-control" data-ng-model="createName" type="text"> 
+    
+    <label for="studentSurname_create">Nazwisko:</label>
+    <input  id="studentSurname_create" class="form-control" data-ng-model="createSurname" type="text">   
+  
+    <button id="createStudentButton" class="btn btn-l btn-success" type="button" ng-click="dodajStudenta(createName,createSurname)" >Dodaj</button>
+  </div>
+  
   
   <ul type="none" class="studentTable">
 	<!--<li>{{student.imie}}</li>-->
@@ -89,11 +117,7 @@
                     
             </div>       
         </div>
-        <!-- 
-        //TODO:
-        zrobic podmenu z danymi studenta
-        formularz w popupie przy dodawaniu studenta
-        -->
+        
 	</li>	
   </ul>
   

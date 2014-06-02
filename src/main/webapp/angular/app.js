@@ -28,6 +28,8 @@ app.controller('MainCtrl', function($scope,$http) {
                 success(function(data) {
                 $scope.studenci = data;
                 console.log(data);
+                $(".searchMenu").hide();
+            	$(".createStudentMenu").hide();
             });
         };
   $scope.ping=function(){
@@ -110,5 +112,37 @@ app.controller('MainCtrl', function($scope,$http) {
 			}
 		});
   };
+  $scope.pokazMenuWyszukiwania=function(){
+	  $(".searchMenu").toggle();
+	  $(".createStudentMenu").hide();
+  };
+  
+  $scope.szukajStudentow=function(index,imie,nazwisko){
+	  alert('localhost:8080/AngularSpringApp/studenci/szukajStudentow?'
+			  +'studentIndex='+index
+			  +'&studentName='+imie
+			  +'&studentSurname='+nazwisko);
+	  if( typeof index==="undefined"
+		  &&
+		  typeof imie==="undefined"
+		  &&
+		  typeof nazwisko==="undefined"){
+		  alert("Podaj przynajmniej jedno kryterium");
+	  }else{
+		  alert(1);
+	  }
+  };
+  
+  $scope.pokazMenuTworzeniaStudenta=function(){
+	  $(".searchMenu").hide();
+	  $(".createStudentMenu").toggle();
+  };
+  
+  $scope.dodajStudenta=function(imie,nazwisko){
+	  alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
+			  +'studentName='+imie
+			  +'&studentSurname='+nazwisko);
+  };
+  
 });
 

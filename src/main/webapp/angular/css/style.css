@@ -17,6 +17,27 @@ body *{
 	font-weight:bold;
 }
 
+.searchMenu{    
+    width: 400px;
+    margin: 3px auto 30px 50px;
+    padding: 0px;
+}
+
+#searchButton{
+	margin: 3px 0px;
+	width: 200px;
+}
+
+.createStudentMenu{    
+    width: 400px;
+    margin: 3px auto 30px 50px;
+    padding: 0px;
+}
+
+#createStudentButton{
+    margin: 3px 0px;
+    width: 200px;
+}
 .studentDataWrapper{	
     width: 920px;
     margin: 3px 0px;
