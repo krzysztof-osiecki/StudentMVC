@@ -94,4 +94,16 @@ public class StudentController {
         //return studenciApi.
         return null;
     };
+    
+    @RequestMapping("/dodajStudenta")
+    public @ResponseBody
+    boolean dodajStudenta(
+            @RequestParam(value="studentName") String imie,
+            @RequestParam(value="studentSurname") String nazwisko,
+            @RequestParam(value="lectures") String wykladyIds
+            ){
+        return false;
+    }
+    
+    
 }

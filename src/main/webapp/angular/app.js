@@ -1,7 +1,7 @@
 var app = angular.module('student', []);
 var baseGrades = [];
 var baseLectures = [];
-var lecturesArray = [];
+var lecturesArray = []; //do tworzenia studenta
 
 //TODO gdzieś na koniec ogarnac jquery z angularem
 app.controller('MainCtrl', function($scope,$http) {
@@ -173,12 +173,21 @@ app.controller('MainCtrl', function($scope,$http) {
 	  $(".createStudentMenu").toggle();	  
   };
   
-  $scope.dodajStudenta=function(imie,nazwisko,list){
-	  lecturesIdArray = [];
+  $scope.dodajStudenta=function(imie,nazwisko){
 	  alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
 			  +'studentName='+imie
 			  +'&studentSurname='+nazwisko
-			  +'&lectures='+list.toString());
+			  +'&lectures='+lecturesArray.toString());
+	  if(typeof imie === "undefined"
+		  ||
+		  typeof nazwisko === "undefined"
+		  ||
+		  lecturesArray == [] || lecturesArray.length == 0 || lecturesArray == null){
+		  alert("Wypełnij poprawnie formularz i zaznacz wykłady");
+	  }
+	  else{
+		  alert("ok");
+	  }
   };
   
   $scope.toggleLecture=function(wykladId,opcja){
@@ -193,7 +202,7 @@ app.controller('MainCtrl', function($scope,$http) {
 		  }
 		  //alert("usuwa "+wykladId);
 	  };
-	  alert(lecturesArray.toString());
+	  //alert(lecturesArray.toString());
   };
   
 });
