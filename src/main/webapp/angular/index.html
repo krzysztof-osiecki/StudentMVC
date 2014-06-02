@@ -71,7 +71,7 @@
                         <!-- <div>{{zaliczenie.ocena}}</div> -->
                         <div>{{zaliczenie.przedmiot}}</div>
                         <div>{{zaliczenie.wykladowca}}</div>
-                        <select class="form-control" ng-model="grade[$index]" ng-options="g.value for g in grades" ng-change="ping()">
+                        <select class="form-control" ng-model="grade[$index]" ng-options="g.wysokosc for g in grades" ng-change="wystawOcene(zaliczenie.id,grade[$index].id)">
                             <option value="">--Wybierz ocenę--</option>
                         </select>
                     </li>
@@ -82,8 +82,9 @@
                     <button id="saveStudentPersonalData_{{student.id}}" class="saveStudentData btn btn-xl btn-success" type="button">Zapisz dane</button>
                 </div>
                 
-                <div class="rightContainer text-right">
+                <div class="rightContainer alert-s alert-success gradeSuccess">
                     <!-- cośtam, że zapisywanie oceny -->
+                    <span>Zapisano!</span>
                 </div>
                     
             </div>       

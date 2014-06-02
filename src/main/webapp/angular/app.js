@@ -1,6 +1,31 @@
 var app = angular.module('student', []);
+var baseGrades = [];
 //TODO gdzieś na koniec ogarnac jquery z angularem
 app.controller('MainCtrl', function($scope,$http) {
+	$http.get('/AngularSpringApp/studenci/pobierzOceny').
+	    success(function(data) {
+	    baseGrades = data;
+	    
+	    for(var i = 0; i < baseGrades.length ; i++){
+	    	console.log();
+	    }
+	    
+	    for(var i = 0; i < baseGrades.length ; i++){
+	    	var min = 0;
+	    	for(var j=i+1 ; j < baseGrades.length; j++){
+	    		console.log(baseGrades[j].wysokosc+ " <?> "+ baseGrades[min].wysokosc);
+	    		if(baseGrades[j].wysokosc < baseGrades[min].wysokosc){
+	    			console.log("ok");
+	    			min = j;
+	    		}
+	    	}
+	    	var tmp = baseGrades[i];
+	    	baseGrades[i] = baseGrades[min];
+	    	baseGrades[min] = tmp;
+	    }
+	    
+	    console.log(data);
+	});
   $scope.name = "Felipe";
   
   $scope.pokazStudentow=function(){
@@ -25,27 +50,19 @@ app.controller('MainCtrl', function($scope,$http) {
 
 		$("#studentIdShowData_"+studentId).hide();
 	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
-	  		success(function(data){
+	  		success(function(data){	  			
 	  			$scope.zaliczeniaStudenta=data;
-
-	  			$scope.grades = [{value:"2"},
-	  			                 {value:"2.5"},
-	  			                 {value:"3"},
-	  			                 {value:"3.5"},
-	  			                 {value:"4"},
-	  			                 {value:"4.5"},
-	  			                 {value:"5"}];
+	  			$scope.grades = baseGrades;	  			
 	  			$scope.grade = [];
 	  			for(var i = 0; i < data.length ; i++){
-	  				for(var j = 0; j < $scope.grades.length; j++){
-	  					
-	  					if(data[i].ocena == $scope.grades[j].value){
+	  				for(var j = 0; j < $scope.grades.length; j++){	  	
+	  					if(data[i].ocena == $scope.grades[j].wysokosc){
 	  						$scope.grade[i] = $scope.grades[j];
 	  						break;
 	  					}
 	  				}
 	  			}
-	  			//$scope.grade[0] = $scope.grades[2];
+	  			
 	  			console.log(data);
 	  			$("#studentIdFullData_"+studentId).show();
 	  			$("#studentIdHideData_"+studentId).show();
@@ -64,6 +81,19 @@ app.controller('MainCtrl', function($scope,$http) {
 			if(data=="true"){
 				$("#studentDataWrapper_"+studentId).remove();
 			}
+		});
+  };
+  
+  $scope.wystawOcene=function(zaliczenieId,ocena){
+	  $http.get('/AngularSpringApp/studenci/wystawOcene?'
+			  +'&zaliczenieId='+zaliczenieId
+			  +'&ocena='+ocena).
+		success(function(data){
+			//alert(data);
+			if(data=="true"){
+				$(".gradeSuccess").show().delay(800).fadeOut("slow");
+			}
+			
 		});
   };
 });

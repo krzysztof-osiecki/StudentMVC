@@ -3,6 +3,7 @@ package javahive.angualrspringapp.controller;
 import java.util.List;
 
 import javahive.api.StudenciApi;
+import javahive.api.dto.OcenaDTO;
 import javahive.api.dto.StudentDTO;
 import javahive.api.dto.WykladDTO;
 import javahive.api.dto.ZaliczenieDTO;
@@ -39,8 +40,6 @@ public class StudentController {
     List<ZaliczenieDTO> getWykladyStudenta(
             @RequestParam(value="studentId") int studentId){
             return studenciApi.pobierzZaliczenia(studentId);
-        //return studentId;
-        //return null;
     }
     
     @RequestMapping("/usunStudenta")
@@ -48,16 +47,20 @@ public class StudentController {
     boolean usunStudenta(
             @RequestParam(value="studentId") int studentId){
             return studenciApi.usunStudenta(studentId);
-        //return studentId;
-        //return null;
     }
     
-    @RequestMapping("/aktualizujStudenta")
-    public @ResponseBody 
-    boolean aktualizujStudenta(
-            @RequestParam(value="studentId") int studentId){
-            return studenciApi.usunStudenta(studentId);
-        //return studentId;
-        //return null;
+    @RequestMapping("/wystawOcene")
+    public @ResponseBody
+    boolean wystawOcene(
+            @RequestParam(value="zaliczenieId") int idZaliczenia,
+            @RequestParam(value="ocena") int ocena
+            ){
+        return studenciApi.wystawOcene(idZaliczenia, ocena);
+    }
+    
+    @RequestMapping("/pobierzOceny")
+    public @ResponseBody
+    List<OcenaDTO> pobierzOceny(){
+        return studenciApi.pobierzOceny();
     }
 }
