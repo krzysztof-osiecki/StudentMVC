@@ -169,19 +169,11 @@ app.controller('MainCtrl', function($scope,$http) {
   $scope.pokazMenuTworzeniaStudenta=function(){
 	  $scope.lectures = baseLectures;
 	  lecturesArray = [];
-	  $(".lectureCheckbox").attr('checked', false);
 	  $(".searchMenu").hide();
 	  $(".createStudentMenu").toggle();	  
   };
   
   $scope.dodajStudenta=function(imie,nazwisko){
-	  lecturesArray = [];
-	  $(".lectureCheckbox").each(function () {
-		  if(this.checked){
-			  lecturesArray.push($(this).val());
-		  }
-	  });
-	  //alert(lecturesArray.toString());
 	  /*alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
 			  +'studentName='+imie
 			  +'&studentSurname='+nazwisko
@@ -201,7 +193,6 @@ app.controller('MainCtrl', function($scope,$http) {
 				  success(function(data){
 					  if(data=="true"){
 						  //ok
-						  $scope.pokazMenuTworzeniaStudenta();
 						  $scope.pokazStudentow();						  
 					  }
 					  else{
@@ -211,6 +202,6 @@ app.controller('MainCtrl', function($scope,$http) {
 				  
 				  
 	  }
-  }; 
+  };  
 });
 
