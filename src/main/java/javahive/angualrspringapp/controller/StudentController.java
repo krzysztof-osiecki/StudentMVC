@@ -102,7 +102,8 @@ public class StudentController {
             @RequestParam(value="studentSurname") String nazwisko,
             @RequestParam(value="lectures") String wykladyIds
             ){
-        return false;
+        return studenciApi.utworzStudenta(imie, nazwisko, wykladyIds);
+        //return false;
     }
     
     
