@@ -174,10 +174,10 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   
   $scope.dodajStudenta=function(imie,nazwisko){
-	  alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
+	  /*alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
 			  +'studentName='+imie
 			  +'&studentSurname='+nazwisko
-			  +'&lectures='+lecturesArray.toString());
+			  +'&lectures='+lecturesArray.toString());*/
 	  if(typeof imie === "undefined"
 		  ||
 		  typeof nazwisko === "undefined"
@@ -186,7 +186,21 @@ app.controller('MainCtrl', function($scope,$http) {
 		  alert("Wypełnij poprawnie formularz i zaznacz wykłady");
 	  }
 	  else{
-		  alert("ok");
+		  $http.get('/AngularSpringApp/studenci/dodajStudenta?'
+				  +'studentName='+imie
+				  +'&studentSurname='+nazwisko
+				  +'&lectures='+lecturesArray.toString()).
+				  success(function(data){
+					  if(data=="true"){
+						  //ok
+						  $scope.pokazStudentow();						  
+					  }
+					  else{
+						  //blad
+					  }
+				  });
+				  
+				  
 	  }
   };
   
