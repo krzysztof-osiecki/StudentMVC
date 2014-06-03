@@ -169,11 +169,19 @@ app.controller('MainCtrl', function($scope,$http) {
   $scope.pokazMenuTworzeniaStudenta=function(){
 	  $scope.lectures = baseLectures;
 	  lecturesArray = [];
+	  $(".lectureCheckbox").attr('checked', false);
 	  $(".searchMenu").hide();
 	  $(".createStudentMenu").toggle();	  
   };
   
   $scope.dodajStudenta=function(imie,nazwisko){
+	  lecturesArray = [];
+	  $(".lectureCheckbox").each(function () {
+		  if(this.checked){
+			  lecturesArray.push($(this).val());
+		  }
+	  });
+	  //alert(lecturesArray.toString());
 	  /*alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
 			  +'studentName='+imie
 			  +'&studentSurname='+nazwisko
@@ -193,6 +201,7 @@ app.controller('MainCtrl', function($scope,$http) {
 				  success(function(data){
 					  if(data=="true"){
 						  //ok
+						  $scope.pokazMenuTworzeniaStudenta();
 						  $scope.pokazStudentow();						  
 					  }
 					  else{
@@ -202,22 +211,6 @@ app.controller('MainCtrl', function($scope,$http) {
 				  
 				  
 	  }
-  };
-  
-  $scope.toggleLecture=function(wykladId,opcja){
-	  if(opcja){
-		  lecturesArray.push(wykladId);	
-		  //alert("dodaje do listy "+wykladId);
-	  }
-	  else{
-		  var t = lecturesArray.indexOf(wykladId);
-		  if(t!=-1){
-			  lecturesArray.splice(t,1);
-		  }
-		  //alert("usuwa "+wykladId);
-	  };
-	  //alert(lecturesArray.toString());
-  };
-  
+  }; 
 });
 

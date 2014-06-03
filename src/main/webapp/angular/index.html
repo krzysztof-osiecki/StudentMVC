@@ -51,7 +51,7 @@
     <ul type="none" class="lecturesTable">
         <li class="lectureWrapper" ng-repeat="lecture in lectures">
             <label>
-		      <input type="checkbox" ng-model="checked" ng-change="toggleLecture(lecture.id,checked)">{{lecture.przedmiot}} - {{lecture.wykladowca}}
+		      <input class="lectureCheckbox" type="checkbox" value="{{lecture.id}}">{{lecture.przedmiot}} - {{lecture.wykladowca}}
 		    </label>
         </li>
     </ul>
