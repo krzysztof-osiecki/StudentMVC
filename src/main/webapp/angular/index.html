@@ -96,12 +96,12 @@
         <div id="studentIdFullData_{{student.id}}" class="studentDetails fullDataContainer">
              
             <div class="leftContainer form-group">
-                <label for="studentIndexNumber">Numer Indeksu:</label>
-                <input  id="studentIndexNumber" class="form-control" data-ng-model="student.numerIndeksu" type="text" disabled="disabled">
-                <label for="studentName">Imię:</label>
-                <input  id="studentName" class="form-control" data-ng-model="student.imie" type="text">
-                <label for="studentSurname">Nazwisko:</label>               
-                <input  id="studentSurname" class="form-control" data-ng-model="student.nazwisko" type="text">                
+                <label for="studentIndexNumber_{{student.id}}">Numer Indeksu:</label>
+                <input  id="studentIndexNumber_{{student.id}}" class="form-control" data-ng-model="student.numerIndeksu" type="text" disabled="disabled">
+                <label for="studentName_{{student.id}}">Imię:</label>
+                <input  id="studentName_{{student.id}}" class="form-control" data-ng-model="student.imie" type="text">
+                <label for="studentSurname_{{student.id}}">Nazwisko:</label>               
+                <input  id="studentSurname_{{student.id}}" class="form-control" data-ng-model="student.nazwisko" type="text">                
                 
             </div>
             <div class="rightContainer moveAwayFromBottom">
@@ -120,6 +120,7 @@
             <div class="buttonsContainer">
                 <div class="leftContainer text-left">
                     <button id="saveStudentPersonalData_{{student.id}}" class="saveStudentData btn btn-xl btn-success" type="button" ng-click="zapiszDaneStudenta(student.id,student.imie,student.nazwisko)">Zapisz dane</button>
+                    <button id="restoreStudentPersonalData_{{student.id}}" class="restoreStudentData btn btn-xl btn-warning" type="button" ng-click="przywrocStudenta(student.id)">Cofnij</button>
                 </div>
                 
                 <div class="rightContainer alert-s alert-success saveSuccess">

@@ -101,5 +101,13 @@ public class StudentController {
         //return false;
     }
     
+    @RequestMapping("/przywrocStudenta")
+    public @ResponseBody
+    StudentDTO przywrocStudenta(
+            @RequestParam(value = "studentId") int studentId
+            ){
+        return studenciApi.przywrocStudenta(studentId);
+    };
+    
     
 }

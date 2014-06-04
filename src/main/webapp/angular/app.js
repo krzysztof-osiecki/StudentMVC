@@ -232,5 +232,27 @@ app.controller('MainCtrl', function($scope,$http) {
 				  
 	  }
   };  
+  
+  $scope.przywrocStudenta=function(studentId){
+	  $http.get('/'+appName+'/studenci/przywrocStudenta?'
+			  +'studentId='+studentId)
+				  .success(function(data){
+					  
+					  for(var i = 0; i < $scope.studenci.length ; i++){
+						  if(data.id == $scope.studenci[i].id){
+							  $scope.studenci[i].imie = data.imie;
+							  $scope.studenci[i].nazwisko = data.nazwisko;
+						  }
+					  }
+					  
+					  //$(".studentIndexNumber_"+studentId).val(data.numerIndeksu);
+		              //$(".studentName_"+studentId).val(data.imie);
+		              //$(".studentSurname_"+studentId).val(data.nazwisko);
+
+		              //$scope.getWykladyStudenta(studentId);
+		              $scope.zapiszDaneStudenta(studentId, data.imie, data.nazwisko);
+		              //$("#studentIdFullData_"+studentId).show();
+				  });
+  }
 });
 
