@@ -1,11 +1,12 @@
 var app = angular.module('student', []);
+var appName = 'Student-Prezentacja.Osiecki-Stankiewicz';
 var baseGrades = [];
 var baseLectures = [];
 var lecturesArray = []; //do tworzenia studenta
 
 //TODO gdzieś na koniec ogarnac jquery z angularem
 app.controller('MainCtrl', function($scope,$http) {
-	$http.get('/AngularSpringApp/studenci/pobierzOceny').
+	$http.get('/'+appName+'/studenci/pobierzOceny').
 	    success(function(data) {
 	    baseGrades = data;
 	    	    
@@ -23,7 +24,7 @@ app.controller('MainCtrl', function($scope,$http) {
 	    console.log(data);
 	});
 	
-	$http.get('/AngularSpringApp/studenci/pobierzWyklady').
+	$http.get('/'+appName+'/studenci/pobierzWyklady').
 	    success(function(data) {
 	    baseLectures = data;
 	    	    
@@ -44,7 +45,7 @@ app.controller('MainCtrl', function($scope,$http) {
   $scope.name = "Felipe";
   
   $scope.pokazStudentow=function(){
-	$http.get('/AngularSpringApp/studenci/lista').
+	$http.get('/'+appName+'/studenci/lista').
                 success(function(data) {
                 $scope.studenci = data;
                 console.log(data);
@@ -53,20 +54,20 @@ app.controller('MainCtrl', function($scope,$http) {
             });
         };
   $scope.ping=function(){
-		$http.get('/AngularSpringApp/studenci/ping').
+		$http.get('/'+appName+'/studenci/ping').
 	                success(function(data) {
 	                	alert(data);
 	            });
 	        };
   $scope.getWykladyStudenta=function(studentId){
-	  //alert('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId);
+	  //alert('/'+appName+'/studenci/wykladyStudenta?studentId='+studentId);
 		$(".studentDetails").not("#studentIdFullData_"+studentId).hide();
 		$(".hideDetails").hide();
 		$(".showDetails").show();
 		$("#deleteStudent_"+studentId).attr("disabled","disabled");
 
 		$("#studentIdShowData_"+studentId).hide();
-	  $http.get('/AngularSpringApp/studenci/wykladyStudenta?studentId='+studentId).
+	  $http.get('/'+appName+'/studenci/wykladyStudenta?studentId='+studentId).
 	  		success(function(data){	  			
 	  			$scope.zaliczeniaStudenta=data;
 	  			
@@ -106,7 +107,7 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   $scope.usunStudenta=function(studentId){	  
 	  if(confirm("Jesteś pewien?")){
-		  $http.get('/AngularSpringApp/studenci/usunStudenta?studentId='+studentId).
+		  $http.get('/'+appName+'/studenci/usunStudenta?studentId='+studentId).
 			success(function(data){
 				//alert(data);
 				if(data=="true"){
@@ -120,7 +121,7 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   
   $scope.wystawOcene=function(zaliczenieId,ocena){
-	  $http.get('/AngularSpringApp/studenci/wystawOcene?'
+	  $http.get('/'+appName+'/studenci/wystawOcene?'
 			  +'&zaliczenieId='+zaliczenieId
 			  +'&ocena='+ocena).
 		success(function(data){
@@ -134,7 +135,7 @@ app.controller('MainCtrl', function($scope,$http) {
   
   $scope.zapiszDaneStudenta=function(studentId,studentImie,studentNazwisko){
 
-	  $http.get('/AngularSpringApp/studenci/zapiszDaneStudenta?'
+	  $http.get('/'+appName+'/studenci/zapiszDaneStudenta?'
 			  +'studentId='+studentId
 			  +'&imie='+studentImie
 			  +'&nazwisko='+studentNazwisko)
@@ -151,7 +152,7 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   
   $scope.szukajStudentow=function(index,imie,nazwisko){
-	  /*alert('localhost:8080/AngularSpringApp/studenci/szukajStudentow?'
+	  /*alert('localhost:8080/'+appName+'/studenci/szukajStudentow?'
 			  +'studentIndex='+index
 			  +'&studentName='+imie
 			  +'&studentSurname='+nazwisko);*/
@@ -172,7 +173,7 @@ app.controller('MainCtrl', function($scope,$http) {
 		  if(nazwisko==""){
 			  nazwisko="undefined";
 		  }
-		  $http.get('/AngularSpringApp/studenci/szukajStudentow?'
+		  $http.get('/'+appName+'/studenci/szukajStudentow?'
 			  +'studentIndex='+index
 			  +'&studentName='+imie
 			  +'&studentSurname='+nazwisko).
@@ -199,7 +200,7 @@ app.controller('MainCtrl', function($scope,$http) {
 			  lecturesArray.push($(this).val());
 		  }
 	  });
-	  /*alert('localhost:8080/AngularSpringApp/studenci/dodajStudenta?'
+	  /*alert('localhost:8080/'+appName+'/studenci/dodajStudenta?'
 			  +'studentName='+imie
 			  +'&studentSurname='+nazwisko
 			  +'&lectures='+lecturesArray.toString());*/
@@ -211,7 +212,7 @@ app.controller('MainCtrl', function($scope,$http) {
 		  alert("Wypełnij poprawnie formularz i zaznacz wykłady");
 	  }
 	  else{
-		  $http.get('/AngularSpringApp/studenci/dodajStudenta?'
+		  $http.get('/'+appName+'/studenci/dodajStudenta?'
 				  +'studentName='+imie
 				  +'&studentSurname='+nazwisko
 				  +'&lectures='+lecturesArray.toString()).

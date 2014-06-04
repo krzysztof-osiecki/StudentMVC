@@ -3,7 +3,7 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <dependent-module archiveName="HibernateApp-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/HibernateApp/HibernateApp">
+        <dependent-module archiveName="Student-Domena.Osiecki-Stankiewicz-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/HibernateApp/HibernateApp">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="AngularSpringApp"/>
