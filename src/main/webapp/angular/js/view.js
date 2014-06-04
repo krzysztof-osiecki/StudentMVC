@@ -4,4 +4,5 @@ $(document).ready(function(){
 	$(".saveSuccess").hide();
 	$(".searchMenu").hide();
 	$(".createStudentMenu").hide();
+	$(".createSuccess").hide();
 });
