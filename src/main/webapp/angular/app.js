@@ -151,10 +151,10 @@ app.controller('MainCtrl', function($scope,$http) {
   };
   
   $scope.szukajStudentow=function(index,imie,nazwisko){
-	  alert('localhost:8080/AngularSpringApp/studenci/szukajStudentow?'
+	  /*alert('localhost:8080/AngularSpringApp/studenci/szukajStudentow?'
 			  +'studentIndex='+index
 			  +'&studentName='+imie
-			  +'&studentSurname='+nazwisko);
+			  +'&studentSurname='+nazwisko);*/
 	  if( typeof index==="undefined"
 		  &&
 		  typeof imie==="undefined"
@@ -162,7 +162,23 @@ app.controller('MainCtrl', function($scope,$http) {
 		  typeof nazwisko==="undefined"){
 		  alert("Podaj przynajmniej jedno kryterium");
 	  }else{
-		  alert(1);
+		  //dont ask... just go with it...
+		  if(index==""){
+			  index="undefined";
+		  }
+		  if(imie==""){
+			  imie="undefined";
+		  }
+		  if(nazwisko==""){
+			  nazwisko="undefined";
+		  }
+		  $http.get('/AngularSpringApp/studenci/szukajStudentow?'
+			  +'studentIndex='+index
+			  +'&studentName='+imie
+			  +'&studentSurname='+nazwisko).
+		  success(function(data){
+			  $scope.studenci = data;
+		  });
 	  }
   };
   

@@ -87,12 +87,7 @@ public class StudentController {
             @RequestParam(value="studentSurname") String nazwisko
             ){
         
-        if(index != null){
-            ///bleh
-        }
-        
-        //return studenciApi.
-        return null;
+        return studenciApi.znajdzStudentowPo(index, imie, nazwisko);
     };
     
     @RequestMapping("/dodajStudenta")
