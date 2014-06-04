@@ -95,7 +95,7 @@ public class StudentController {
     boolean dodajStudenta(
             @RequestParam(value="studentName") String imie,
             @RequestParam(value="studentSurname") String nazwisko,
-            @RequestParam(value="lectures") String wykladyIds
+            @RequestParam(value="lectures") int [] wykladyIds
             ){
         return studenciApi.utworzStudenta(imie, nazwisko, wykladyIds);
         //return false;

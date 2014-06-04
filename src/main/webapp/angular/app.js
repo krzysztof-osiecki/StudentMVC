@@ -215,8 +215,8 @@ app.controller('MainCtrl', function($scope,$http) {
 		  $http.get('/'+appName+'/studenci/dodajStudenta?'
 				  +'studentName='+imie
 				  +'&studentSurname='+nazwisko
-				  +'&lectures='+lecturesArray.toString()).
-				  success(function(data){
+				  +'&lectures='+lecturesArray)//.toString())
+				  .success(function(data){
 					  if(data=="true"){
 						  //ok
 						  $(".createSuccess").show().delay("700").fadeOut("slow");
