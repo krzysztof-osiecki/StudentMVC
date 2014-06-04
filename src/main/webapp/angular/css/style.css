@@ -147,3 +147,13 @@ h1{
 .menuButtonsContainer > button{
 	display:inline-block;
 }
+
+.createSuccess{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	height: 40px;
+	text-align: center;
+	z-index:1;
+}

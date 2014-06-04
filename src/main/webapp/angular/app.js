@@ -202,8 +202,10 @@ app.controller('MainCtrl', function($scope,$http) {
 				  success(function(data){
 					  if(data=="true"){
 						  //ok
+						  $(".createSuccess").show().delay("700").fadeOut("slow");
 						  $scope.pokazStudentow();
 						  $scope.pokazMenuTworzeniaStudenta();
+						  
 					  }
 					  else{
 						  //blad
