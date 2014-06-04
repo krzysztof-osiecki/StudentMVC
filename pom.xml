@@ -33,9 +33,5 @@
 	<build>
 		<finalName>AngularSpringApp</finalName>
 	</build>
-	<parent>
-		<groupId>javahive</groupId>
-		<artifactId>parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
+
 </project>
