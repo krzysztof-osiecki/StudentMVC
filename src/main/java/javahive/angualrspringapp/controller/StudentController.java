@@ -98,7 +98,6 @@ public class StudentController {
             @RequestParam(value="lectures") int [] wykladyIds
             ){
         return studenciApi.utworzStudenta(imie, nazwisko, wykladyIds);
-        //return false;
     }
     
     @RequestMapping("/przywrocStudenta")

@@ -225,7 +225,7 @@ app.controller('MainCtrl', function($scope,$http) {
 						  
 					  }
 					  else{
-						  //blad
+						  alert("Podany student juz istnieje.");
 					  }
 				  });
 				  
